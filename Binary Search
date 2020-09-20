@@ -1,0 +1,17 @@
+#time complexity- O(log(n))
+#space complexity- O(log(n))
+
+def binarySearch(array, target):
+    return dobinarysearch(array,target,0,len(array)-1)
+
+def dobinarysearch(array,target,left,right):
+	if left > right:
+		return -1
+	middle = (left + right) // 2
+    match = array[middle]
+	if target == match:
+		return middle
+	elif target < match:
+		return dobinarysearch(array, target, left, middle-1)
+	else:
+		return dobinarysearch(array, target, middle + 1, right)
